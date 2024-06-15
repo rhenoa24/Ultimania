@@ -1,7 +1,7 @@
 {
   "entryAssembly": "Ultimania",
   "resources": {
-    "hash": "sha256-4aB68IyieB7Lzg0Oum2z1hujhmJHWq/3k+8K3QrxS3Y=",
+    "hash": "sha256-eh1muPEmi9bToqITyyMWZGQ0H9SywfDq68eiqq0RwVA=",
     "runtime": {
       "dotnet.7.0.16.wew9ox7561.js": "sha256-4BiArKugJJtpQrznGF5zWfmJ2TB98+p6rKsyoqhtMk4=",
       "dotnet.timezones.blat": "sha256-rwyJqJu36keQwNmm/O1XV7tnkkVldIOK8GIjn4gTUt4=",
@@ -38,7 +38,7 @@
       "System.Runtime.InteropServices.JavaScript.dll": "sha256-g9jUH7KrGGyxat25wHXx0zt45mJtLa7+pIIfZ04taz8=",
       "System.Text.Encodings.Web.dll": "sha256-JtlNCowjopqTFgu6Q8JsFOjb+KguYBrCOZj5ITmDggc=",
       "System.Text.Json.dll": "sha256-GhGCKHeQqdUJXM2GY1/daMs5wwbFr+PRojXXHiYFl0g=",
-      "Ultimania.dll": "sha256-x/wUofQiATidrQ5fmRPXGhzdvXGriFQMKWs+IFhD2zo="
+      "Ultimania.dll": "sha256-A8JxPkCfdgpmQAUevHSM+XFkL+91n+TszaMWJLHsoB8="
     },
     "runtimeAssets": {
       "dotnet.wasm": {
