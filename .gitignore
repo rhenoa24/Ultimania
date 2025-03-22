@@ -59,3 +59,7 @@ TestResult.xml
 Version.cs
 Version.h
 Version.cpp
+
+.vs/*
+dist/*
+obj/*
