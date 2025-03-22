@@ -43,6 +43,8 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/ultimania",
+              "baseHref": "/Ultimania",
               "budgets": [
                 {
                   "type": "initial",

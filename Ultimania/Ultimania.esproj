@@ -7,4 +7,7 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\Ultimania\browser\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\deploy.yaml" />
+  </ItemGroup>
 </Project>
