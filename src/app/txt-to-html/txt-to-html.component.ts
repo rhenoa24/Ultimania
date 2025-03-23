@@ -4,9 +4,7 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 
 @Component({
   selector: 'txt-to-html',
-  template: `
-    <div #contentContainer></div>
-  `,
+  template: `<div #contentContainer></div>`,
   standalone: false,
   styleUrls: ['./txt-to-html.component.css']
 })
@@ -32,16 +30,19 @@ export class TxtToHtmlComponent implements OnChanges {
   private renderContent(markup: string) {
     this.contentContainer.clear();
 
+    // Replace `{{DIALOG|...|...}}` placeholders with components while keeping other content intact
     const fragments = markup.split(/({{DIALOG\|[^}]+}})/g);
 
     for (const fragment of fragments) {
       const match = fragment.match(/{{DIALOG\|([^|]+)\|([^}]+)}}/);
       if (match) {
+        // Insert a DialogBoxComponent
         const dialogRef: ComponentRef<DialogBoxComponent> = this.contentContainer.createComponent(DialogBoxComponent);
         dialogRef.instance.name = match[1];
         dialogRef.instance.dialog = match[2];
       } else {
-        const sanitizedText = fragment.trim().replace(/\n/g, '<br/>');
+        // Insert regular content as is, avoiding unnecessary <br> tags
+        const sanitizedText = fragment.trim();
         if (sanitizedText) {
           this.contentContainer.element.nativeElement.insertAdjacentHTML('beforeend', sanitizedText);
         }

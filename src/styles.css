@@ -10,7 +10,11 @@
 
 body {
   margin: 0;
-  background: #111111;
+  /*background: #111111;*/
+  background-image: url('../public/images/wood.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #A58F66;
 }
 

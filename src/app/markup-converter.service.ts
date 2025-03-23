@@ -27,17 +27,22 @@ export class MarkupConverterService {
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>');
 
-    // Convert lists properly by wrapping all items in one `<ul>`
+    // Convert lists properly
     text = text.replace(/(?:^|\n)- (.*)/g, '<li>$1</li>'); // Convert `- item` to `<li>item</li>`
-    text = text.replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>'); // Wrap `<li>` elements inside `<ul>`
+    text = text.replace(/(?:<\/li>\s*)+(?=<li>)/g, ''); // Remove any gaps between `<li>` items
+    text = text.replace(/<li>.*?<\/li>/gs, '<ul>$&</ul>'); // Wrap `<li>` elements inside `<ul>`, but only once
 
-    // Preserve paragraph breaks
-    text = text.replace(/\n/g, '<br>');
-
-    // Replace `[Name] "Dialog text"` with a placeholder
+    // Replace `[Name] "Dialog text"` but avoid interfering with line breaks
     text = text.replace(/\[([^\]]+)\]\s*"([^"]+)"/g, '{{DIALOG|$1|$2}}');
+
+    // Preserve paragraph breaks (except inside lists and dialogs)
+    text = text
+      .split(/\n\s*\n/) // Detect double newlines as paragraph breaks
+      .map(para => (para.match(/^<h[1-3]>|^<ul>|^{{DIALOG/) ? para : `<p>${para}</p>`)) // Wrap in <p> unless it's a heading, list, or dialog
+      .join('');
 
     return text;
   }
+
 
 }

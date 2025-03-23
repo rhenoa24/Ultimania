@@ -14,8 +14,8 @@ export class FlipbookComponent {
 
   ngAfterViewInit(): void {
     this.pageFlip = new PageFlip(this.flipContainer.nativeElement, {
-      width: 550, // base page width
-      height: 733, // base page height
+      width: 800, // base page width
+      height: 800, // base page height
       //size: "stretch" as any,
       minWidth: 315,
       maxWidth: 1000,
