@@ -7,7 +7,7 @@
   "type": "chrome",
   "request": "launch",
   "url": "http://localhost:59186",
-  "webRoot": "C:\\Users\\alyss\\Documents\\Work\\Ultimania\\Ultimania"
+  "webRoot": "C:\\Users\\alyss\\Documents\\Work\\Ultimania"
 }</LaunchJsonTarget>
   </PropertyGroup>
 </Project>
