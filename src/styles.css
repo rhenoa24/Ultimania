@@ -14,6 +14,10 @@ body {
   color: #A58F66;
 }
 
+h1, h2, h3, ul {
+    margin: 0;
+}
+
 .light {
     color: #D9C296
 }

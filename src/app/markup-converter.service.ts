@@ -7,20 +7,34 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MarkupConverterService {
-  private filePath = '/txt/test.txt'; // Correct path
-
   constructor(private http: HttpClient) { }
 
-  getTextFile(): Observable<string> {
-    return this.http.get(this.filePath, { responseType: 'text' }).pipe(
+  getTextFile(filePath: string): Observable<string> {
+    return this.http.get(filePath, { responseType: 'text' }).pipe(
       map(text => this.applyBasicMarkup(text))
     );
   }
 
   private applyBasicMarkup(text: string): string {
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold: **text**
-      .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italic: __text__
-      .replace(/\n/g, '<br>'); // New line to <br>
+    // Convert headings
+    text = text
+      .replace(/^### (.*)$/gm, '<h3>$1</h3>')
+      .replace(/^## (.*)$/gm, '<h2>$1</h2>')
+      .replace(/^# (.*)$/gm, '<h1>$1</h1>');
+
+    // Convert bold (**text**) and italic (*text*)
+    text = text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // Convert lists properly by wrapping all items in one `<ul>`
+    text = text.replace(/(?:^|\n)- (.*)/g, '<li>$1</li>'); // Convert `- item` to `<li>item</li>`
+    text = text.replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>'); // Wrap `<li>` elements inside `<ul>`
+
+    // Preserve paragraph breaks
+    text = text.replace(/\n/g, '<br>');
+
+    return text;
   }
+
 }
