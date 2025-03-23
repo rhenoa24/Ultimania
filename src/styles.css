@@ -5,4 +5,21 @@
 
 * {
   font-family: "Vollkorn", serif;
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0
+}
+
+.light {
+    color: #D9C296
+}
+
+.base {
+    color: #A58F66
+}
+
+.dark {
+    color: #423927
 }

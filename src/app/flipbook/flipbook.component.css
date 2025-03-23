@@ -1,8 +1,9 @@
-.my-flipbook {
-}
-
-.page-content {
-  padding: 20px;
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  background: #111111;
+  padding: 50px;
+  overflow: hidden;
 }
 
 .page {
@@ -33,3 +34,16 @@
     color: #785e3a;
     border: solid 1px #998466;
   }
+
+  .page .page-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+    .page .page-content .page-image {
+      height: 200px;
+      width: 100%;
+      margin: 20px 0;
+    }

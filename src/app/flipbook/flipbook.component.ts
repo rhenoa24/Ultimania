@@ -14,13 +14,29 @@ export class FlipbookComponent {
 
   ngAfterViewInit(): void {
     this.pageFlip = new PageFlip(this.flipContainer.nativeElement, {
-      width: 400, // Base page width
-      height: 600, // Base page height
-      maxShadowOpacity: 0.5, // Shadow opacity
+      width: 550, // base page width
+      height: 733, // base page height
+      //size: "stretch" as any,
+      minWidth: 315,
+      maxWidth: 1000,
+      minHeight: 420,
+      maxHeight: 1350,
+      maxShadowOpacity: 0.5, // Half shadow intensity
       showCover: true,
+      mobileScrollSupport: false // disable content scrolling on mobile devices
     });
+
 
     this.pageFlip.loadFromHTML(document.querySelectorAll('.page'));
   }
 
+  protected Previous(): void {
+    this.pageFlip.flipPrev();
+  }
+
+  protected Next(): void {
+    this.pageFlip.flipNext();
+  }
+
 }
+
