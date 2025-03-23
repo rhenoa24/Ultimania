@@ -34,6 +34,10 @@ export class MarkupConverterService {
     // Preserve paragraph breaks
     text = text.replace(/\n/g, '<br>');
 
+    // Convert `[Name] "Dialog text"` to `<dialog-box>`
+    text = text.replace(/\[([^\]]+)\]\s*"([^"]+)"/g, '<dialog-box name="$1" dialog="$2"></dialog-box>');
+
+
     return text;
   }
 

@@ -6,19 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlipbookComponent } from './flipbook/flipbook.component';
 import { TxtToHtmlComponent } from './txt-to-html/txt-to-html.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlipbookComponent,
-    TxtToHtmlComponent
+    TxtToHtmlComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [
+    DialogBoxComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

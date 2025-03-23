@@ -1,0 +1,28 @@
+.dialog-box-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px;
+}
+
+.name, .dialog-box {
+  border: 1px solid;
+  border-radius: 4px;
+  position: relative;
+}
+
+.name {
+  font-family: "Lora", serif;
+  padding: 2px 20px;
+  width: fit-content;
+  left: 10px;
+  background-color: #A58F66;
+  color: #111111;
+  font-size: 1.1rem;
+  z-index: 1;
+}
+
+.dialog-box {
+  padding: 20px;
+  top: -10px;
+}
