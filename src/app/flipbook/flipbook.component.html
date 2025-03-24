@@ -1,22 +1,25 @@
 <div class="page-container">
 
 
-  <div class="container">
-    <div>
-      <button type="button" class="btn-prev" (click)="Previous()">Previous page</button>
-      &nbsp;
-      <button type="button" class="btn-next" (click)="Next()">Next page</button>
-    </div>
+  <div>
+    <button type="button" class="btn-prev" (click)="Previous()">Previous page</button>
+    &nbsp;
+    <button type="button" class="btn-next" (click)="Next()">Next page</button>
   </div>
 
   <br />
 
-  <div class="container">
+  <div class="book-container">
     <div #flipbook>
 
       <div class="page page-cover page-cover-top" data-density="hard">
         <div class="page-content">
           <h2>BOOK TITLE</h2>
+        </div>
+      </div>
+
+      <div class="page page-cover inner" data-density="hard">
+        <div class="page-content">
         </div>
       </div>
 
@@ -34,6 +37,11 @@
         </div>
 
       </ng-container>
+
+      <div class="page page-cover inner" data-density="hard">
+        <div class="page-content">
+        </div>
+      </div>
 
       <div class="page page-cover page-cover-bottom" data-density="hard">
         <div class="page-content">

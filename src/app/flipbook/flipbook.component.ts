@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { PageFlip } from 'page-flip';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { FlipbookService } from '../flipbook.service';
 
 @Component({
   selector: 'app-flipbook',
@@ -7,36 +7,21 @@ import { PageFlip } from 'page-flip';
   templateUrl: './flipbook.component.html',
   styleUrl: './flipbook.component.css'
 })
-export class FlipbookComponent {
+export class FlipbookComponent implements AfterViewInit {
 
   @ViewChild('flipbook', { static: false }) flipContainer!: ElementRef;
-  private pageFlip!: PageFlip;
+
+  constructor(private flipbookService: FlipbookService) { }
 
   ngAfterViewInit(): void {
-    this.pageFlip = new PageFlip(this.flipContainer.nativeElement, {
-      width: 800, // base page width
-      height: 800, // base page height
-      //size: "stretch" as any,
-      minWidth: 315,
-      maxWidth: 1000,
-      minHeight: 420,
-      maxHeight: 1350,
-      maxShadowOpacity: 0.5, // Half shadow intensity
-      showCover: true,
-      mobileScrollSupport: false // disable content scrolling on mobile devices
-    });
-
-
-    this.pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+    this.flipbookService.initFlipbook(this.flipContainer);
   }
 
-  protected Previous(): void {
-    this.pageFlip.flipPrev();
+  Previous(): void {
+    this.flipbookService.flipPrev();
   }
 
-  protected Next(): void {
-    this.pageFlip.flipNext();
+  Next(): void {
+    this.flipbookService.flipNext();
   }
-
 }
-

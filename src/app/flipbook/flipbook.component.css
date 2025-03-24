@@ -5,6 +5,11 @@
   overflow: hidden;
 }
 
+.book-container {
+/*    width: 1400px;
+    height: 800px;*/
+}
+
 .page {
   overflow: hidden;
   background-color: #fdfaf7;
