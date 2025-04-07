@@ -9,19 +9,29 @@ import { FlipbookService } from '../flipbook.service';
 })
 export class FlipbookComponent implements AfterViewInit {
 
-  @ViewChild('flipbook', { static: false }) flipContainer!: ElementRef;
+  pageIds: string[] = [];
+  totalPages: number = 3;
 
-  constructor(private flipbookService: FlipbookService) { }
+  constructor() {
+    // Manually filling the array with page IDs
+    for (let i = 0; i < this.totalPages; i++) {
+      this.pageIds.push('page' + (i + 1));
+    }
+  }
+
+  //@ViewChild('flipbook', { static: false }) flipContainer!: ElementRef;
+
+  //constructor(private flipbookService: FlipbookService) { }
 
   ngAfterViewInit(): void {
-    this.flipbookService.initFlipbook(this.flipContainer);
+    //this.flipbookService.initFlipbook(this.flipContainer);
   }
 
-  Previous(): void {
-    this.flipbookService.flipPrev();
-  }
+  //Previous(): void {
+  //  this.flipbookService.flipPrev();
+  //}
 
-  Next(): void {
-    this.flipbookService.flipNext();
-  }
+  //Next(): void {
+  //  this.flipbookService.flipNext();
+  //}
 }
