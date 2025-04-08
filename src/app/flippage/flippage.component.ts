@@ -19,8 +19,8 @@ export class FlippageComponent {
 
   protected pageFlip(): void {
     this.isFlipped = !this.isFlipped;
-    this.isFlippedChanged.emit(this.isFlipped);
     this.cdr.detectChanges();
+    this.isFlippedChanged.emit(this.isFlipped);
   }
 
 }

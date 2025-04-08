@@ -1,5 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { FlipbookService } from '../flipbook.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-flipbook',
@@ -7,31 +6,36 @@ import { FlipbookService } from '../flipbook.service';
   templateUrl: './flipbook.component.html',
   styleUrl: './flipbook.component.css'
 })
-export class FlipbookComponent implements AfterViewInit {
+export class FlipbookComponent implements OnInit {
+  pages: { front: string; back: string }[] = [];
+  zIndices: number[] = [];
 
-  pageIds: string[] = [];
-  totalPages: number = 3;
+  ngOnInit(): void {
+    // Define your pages
+    this.pages = [
+      { front: 'test.txt', back: 'test.txt' },
+      { front: 'test.txt', back: 'test.txt' },
+      { front: 'test.txt', back: 'test.txt' }
+    ];
 
-  constructor() {
-    // Manually filling the array with page IDs
-    for (let i = 0; i < this.totalPages; i++) {
-      this.pageIds.push('page' + (i + 1));
+    // Assign z-index values (starting from highest)
+    const totalPages = this.pages.length;
+    for (let i = 0; i < totalPages; i++) {
+      const zIndexValue = totalPages - i + 1;
+      this.zIndices.push(zIndexValue);
     }
   }
 
-  //@ViewChild('flipbook', { static: false }) flipContainer!: ElementRef;
+  handleFlip(pageIndex: number): void {
+    // Get the current maximum z-index
+    let highestZIndex = 0;
+    for (let i = 0; i < this.zIndices.length; i++) {
+      if (this.zIndices[i] > highestZIndex) {
+        highestZIndex = this.zIndices[i];
+      }
+    }
 
-  //constructor(private flipbookService: FlipbookService) { }
-
-  ngAfterViewInit(): void {
-    //this.flipbookService.initFlipbook(this.flipContainer);
+    // Bring the flipped page to the front
+    this.zIndices[pageIndex] = highestZIndex + 1;
   }
-
-  //Previous(): void {
-  //  this.flipbookService.flipPrev();
-  //}
-
-  //Next(): void {
-  //  this.flipbookService.flipNext();
-  //}
 }

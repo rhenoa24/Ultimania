@@ -1,6 +1,11 @@
 <div class="book-frame">
   <div class="page-wrapper">
-    <flip-page Front="test.txt" Back="test.txt"></flip-page>
-    <flip-page Front="test.txt" Back="test.txt"></flip-page>
+    <div *ngFor="let page of pages; let i = index">
+      <flip-page [Front]="page.front"
+                 [Back]="page.back"
+                 [style.zIndex]="zIndices[i]"
+                 (isFlippedChanged)="handleFlip(i)">
+      </flip-page>
+    </div>
   </div>
 </div>
