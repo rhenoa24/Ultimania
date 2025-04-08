@@ -24,20 +24,20 @@
     pointer-events: all;
   }
 
-  .front-page, .back-page {
-    width: calc(100% - 40px);
-    margin-top: 20px;
-    height: calc(100% - 40px);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition-duration: 1.5s;
-    padding: 20px;
-    overflow: hidden;
-    /**/
-    overflow: hidden;
-    background-color: #fdfaf7;
-    border: solid 1px #c2b5a3;
-  }
+.front-page, .back-page {
+  width: calc(100% - 40px);
+  margin-top: 20px;
+  height: calc(100% - 40px);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition-duration: 1.5s;
+  padding: 20px;
+  overflow: hidden;
+  /**/
+  overflow: hidden;
+  background-color: #fdfaf7;
+  border: solid 1px #c2b5a3;
+}
 
 .back-page {
   transform-origin: right;

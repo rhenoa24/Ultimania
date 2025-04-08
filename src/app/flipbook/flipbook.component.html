@@ -1,5 +1,6 @@
 <div class="book-frame">
   <div class="page-wrapper">
+    <div class="click-shield" *ngIf="isCooldown"></div>
     <div *ngFor="let page of pages; let i = index">
       <flip-page [Front]="page.front"
                  [Back]="page.back"

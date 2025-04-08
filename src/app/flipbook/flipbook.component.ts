@@ -15,6 +15,10 @@ export class FlipbookComponent implements OnInit {
     this.pages = [
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
+      { front: 'test.txt', back: 'test.txt' },
+      { front: 'test.txt', back: 'test.txt' },
+      { front: 'test.txt', back: 'test.txt' },
+      { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' }
     ];
 
@@ -26,16 +30,20 @@ export class FlipbookComponent implements OnInit {
     }
   }
 
-  handleFlip(pageIndex: number): void {
-    // Get the current maximum z-index
-    let highestZIndex = 0;
-    for (let i = 0; i < this.zIndices.length; i++) {
-      if (this.zIndices[i] > highestZIndex) {
-        highestZIndex = this.zIndices[i];
-      }
-    }
+  isCooldown = false;
 
-    // Bring the flipped page to the front
+  handleFlip(pageIndex: number): void {
+    if (this.isCooldown) return;
+
+    // Start cooldown
+    this.isCooldown = true;
+    setTimeout(() => {
+      this.isCooldown = false;
+    }, 250);
+
+    // Immediately update z-index
+    const highestZIndex = Math.max(...this.zIndices);
     this.zIndices[pageIndex] = highestZIndex + 1;
   }
+
 }

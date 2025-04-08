@@ -16,3 +16,11 @@
   left: 0;
   right: 0;
 }
+
+.click-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: all;
+  background: transparent;
+}

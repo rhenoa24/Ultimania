@@ -17,10 +17,29 @@ export class FlippageComponent {
     private cdr: ChangeDetectorRef
   ) { }
 
+  // Create an array of filenames dynamically using a loop
+  private flipSounds: string[] = [];
+
+  ngOnInit(): void {
+    // Generate filenames for flip sounds
+    for (let i = 1; i <= 12; i++) {
+      this.flipSounds.push(`/audio/flip-(${i}).wav`);
+    }
+  }
+
   protected pageFlip(): void {
     this.isFlipped = !this.isFlipped;
     this.cdr.detectChanges();
     this.isFlippedChanged.emit(this.isFlipped);
+
+    // Select a random flip sound from the array
+    const randomIndex = Math.floor(Math.random() * this.flipSounds.length);
+    const flipSound = new Audio(this.flipSounds[randomIndex]);
+
+    // Play the selected flip sound
+    flipSound.play().catch(function (error) {
+      console.error('Audio play failed', error);
+    });
   }
 
 }
