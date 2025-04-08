@@ -1,4 +1,5 @@
-<div class="flip-page" [class.flipped]="this.isFlipped">
+<div class="flip-page" [class.flipped]="this.isFlipped"
+     [class.cover-page]="this.Cover != ''">
   <div class="back-page" (click)="pageFlip()">
     <txt-to-html [filename]="Back"></txt-to-html>
   </div>

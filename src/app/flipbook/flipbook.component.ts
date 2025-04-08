@@ -7,19 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './flipbook.component.css'
 })
 export class FlipbookComponent implements OnInit {
-  pages: { front: string; back: string }[] = [];
+  pages: { front?: string; back?: string; cover?: string }[] = [];
   zIndices: number[] = [];
 
   ngOnInit(): void {
     // Define your pages
     this.pages = [
+      { cover: 'image.png' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
-      { front: 'test.txt', back: 'test.txt' }
+      { cover: 'image.png' }
     ];
 
     // Assign z-index values (starting from highest)

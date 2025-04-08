@@ -9,6 +9,9 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angu
 export class FlippageComponent {
   @Input() Front: string = '';
   @Input() Back: string = '';
+
+  @Input() Cover: string = '';
+
   @Output() isFlippedChanged = new EventEmitter<boolean>();
 
   protected isFlipped: boolean = false;
