@@ -1,0 +1,8 @@
+<div class="flip-page" [class.flipped]="this.isFlipped">
+  <div class="back-page" (click)="pageFlip()">
+    <txt-to-html [filename]="Back"></txt-to-html>
+  </div>
+  <div class="front-page" (click)="pageFlip()">
+    <txt-to-html [filename]="Front"></txt-to-html>
+  </div>
+</div>

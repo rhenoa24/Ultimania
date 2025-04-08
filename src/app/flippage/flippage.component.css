@@ -1,0 +1,56 @@
+:host {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-page {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  perspective: 2000px;
+  position: relative;
+}
+
+  .flip-page.flipped .front-page {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+  }
+
+  .flip-page.flipped .back-page {
+    transform: rotateY(0deg);
+    pointer-events: all;
+  }
+
+  .front-page, .back-page {
+    width: calc(100% - 40px);
+    margin-top: 20px;
+    height: calc(100% - 40px);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition-duration: 1.5s;
+    padding: 20px;
+    overflow: hidden;
+    /**/
+    overflow: hidden;
+    background-color: #fdfaf7;
+    border: solid 1px #c2b5a3;
+  }
+
+.back-page {
+  transform-origin: right;
+  transform: rotateY(180deg);
+  box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.4);
+  margin-left: 40px;
+  pointer-events: none;
+}
+
+.front-page {
+  transform-origin: left;
+  transform: rotateY(0deg);
+  box-shadow: inset 7px 0 30px -7px rgba(0,0,0,0.4);
+  margin-right: 40px;
+  pointer-events: all;
+}

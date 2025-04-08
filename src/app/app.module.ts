@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { FlipbookComponent } from './flipbook/flipbook.component';
 import { TxtToHtmlComponent } from './txt-to-html/txt-to-html.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { FlippageComponent } from './flippage/flippage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlipbookComponent,
     TxtToHtmlComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    FlippageComponent
   ],
   imports: [
     BrowserModule,
