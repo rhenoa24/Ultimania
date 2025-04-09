@@ -13,14 +13,14 @@ export class FlipbookComponent implements OnInit {
   ngOnInit(): void {
     // Define your pages
     this.pages = [
-      { cover: 'image.png', frontCover: true },
+      { cover: 'green-cover.jpg', frontCover: true },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
       { front: 'test.txt', back: 'test.txt' },
-      { cover: 'image.png' }
+      { cover: 'green-cover.jpg' }
     ];
 
     // Assign z-index values (starting from highest)
@@ -46,5 +46,9 @@ export class FlipbookComponent implements OnInit {
     const highestZIndex = Math.max(...this.zIndices);
     this.zIndices[pageIndex] = highestZIndex + 1;
   }
+
+  isCentered = false;
+
+
 
 }

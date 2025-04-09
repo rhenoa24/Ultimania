@@ -9,7 +9,7 @@
 .page-wrapper {
   position: absolute;
   height: 90%;
-  width: 80%;
+  aspect-ratio: 13 / 9;
   margin: auto;
   top: 0;
   bottom: 0;

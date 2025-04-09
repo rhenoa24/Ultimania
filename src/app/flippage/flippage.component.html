@@ -1,13 +1,28 @@
-<div class="flip-page" [class.flipped]="this.isFlipped"
-     [class.cover-page]="this.Cover" [class.front]="this.FrontCover">
+<div class="flip-page"
+     [class.flipped]="this.isFlipped"
+     [class.cover-page]="this.Cover"
+     [class.front]="this.FrontCover"
+     [class.centered]="this.isCentered">
+
+  @if (this.Cover !== '' && this.Cover !== null && this.Cover !== undefined) {
+  <!-- Cover Page -->
+  <div class="back-page"
+       (click)="pageFlip()"
+       [style.background-image]="'url(./images/' + this.Cover + ')'">
+  </div>
+
+  <div class="front-page"
+       (click)="pageFlip()"
+       [style.background-image]="'url(./images/' + this.Cover + ')'">
+  </div>
+  } @else {
+  <!-- Normal Page -->
   <div class="back-page" (click)="pageFlip()">
-    @if (Back){
     <txt-to-html [filename]="Back"></txt-to-html>
-    }
   </div>
+
   <div class="front-page" (click)="pageFlip()">
-    @if (Front){
     <txt-to-html [filename]="Front"></txt-to-html>
-    }
   </div>
+  }
 </div>

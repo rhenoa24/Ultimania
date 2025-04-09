@@ -13,9 +13,10 @@ export class FlippageComponent {
   @Input() Cover?: string = '';
   @Input() FrontCover?: boolean = false;
 
+  protected isFlipped: boolean = false;
   @Output() isFlippedChanged = new EventEmitter<boolean>();
 
-  protected isFlipped: boolean = false;
+  @Input() isCentered?: boolean = true;
 
   constructor(
     private cdr: ChangeDetectorRef
@@ -29,6 +30,7 @@ export class FlippageComponent {
     for (let i = 1; i <= 12; i++) {
       this.flipSounds.push(`./audio/flip-(${i}).wav`);
     }
+
   }
 
   protected pageFlip(): void {
