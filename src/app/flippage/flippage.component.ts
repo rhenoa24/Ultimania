@@ -36,14 +36,53 @@ export class FlippageComponent {
     this.cdr.detectChanges();
     this.isFlippedChanged.emit(this.isFlipped);
 
-    // Select a random flip sound from the array
-    const randomIndex = Math.floor(Math.random() * this.flipSounds.length);
-    const flipSound = new Audio(this.flipSounds[randomIndex]);
+    if (!this.Cover) {
+      // Select a random flip sound from the array
+      const randomIndex = Math.floor(Math.random() * this.flipSounds.length);
+      const flipSound = new Audio(this.flipSounds[randomIndex]);
 
-    // Play the selected flip sound
-    flipSound.play().catch(function (error) {
-      console.error('Audio play failed', error);
-    });
+      // Play the selected flip sound
+      flipSound.play().catch(function (error) {
+        console.error('Audio play failed', error);
+      });
+    }
+
+    if (this.Cover) {
+
+      //Front Cover
+      if (this.FrontCover === true) {
+        if (this.isFlipped === true) {
+          const flipSound = new Audio('./audio/cover-open.wav');
+          flipSound.play().catch(function (error) {
+            console.error('Audio play failed', error);
+          });
+        }
+        else {
+          const flipSound = new Audio('./audio/cover-close.wav');
+          flipSound.play().catch(function (error) {
+            console.error('Audio play failed', error);
+          });
+        }
+      }
+
+      //Back Cover
+      else {
+        if (this.isFlipped === true) {
+          const flipSound = new Audio('./audio/cover-close.wav');
+          flipSound.play().catch(function (error) {
+            console.error('Audio play failed', error);
+          });
+        }
+        else {
+          const flipSound = new Audio('./audio/cover-open.wav');
+          flipSound.play().catch(function (error) {
+            console.error('Audio play failed', error);
+          });
+        }
+      }
+
+    }
+
   }
 
 }
