@@ -4,6 +4,8 @@
     <div *ngFor="let page of pages; let i = index">
       <flip-page [Front]="page.front"
                  [Back]="page.back"
+                 [Cover]="page.cover"
+                 [FrontCover]="page.frontCover"
                  [style.zIndex]="zIndices[i]"
                  (isFlippedChanged)="handleFlip(i)">
       </flip-page>

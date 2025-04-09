@@ -7,10 +7,11 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angu
   styleUrl: './flippage.component.css'
 })
 export class FlippageComponent {
-  @Input() Front: string = '';
-  @Input() Back: string = '';
+  @Input() Front?: string = '';
+  @Input() Back?: string = '';
 
-  @Input() Cover: string = '';
+  @Input() Cover?: string = '';
+  @Input() FrontCover?: boolean = false;
 
   @Output() isFlippedChanged = new EventEmitter<boolean>();
 
@@ -26,7 +27,7 @@ export class FlippageComponent {
   ngOnInit(): void {
     // Generate filenames for flip sounds
     for (let i = 1; i <= 12; i++) {
-      this.flipSounds.push(`/audio/flip-(${i}).wav`);
+      this.flipSounds.push(`./audio/flip-(${i}).wav`);
     }
   }
 

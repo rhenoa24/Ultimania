@@ -25,9 +25,9 @@
   }
 
 .front-page, .back-page {
-  width: calc(100% - 40px);
-  margin-top: 20px;
-  height: calc(100% - 40px);
+  width: calc(100% - 2%);
+  margin-top: 2%;
+  height: calc(100% - 4%);
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition-duration: 1.5s;
@@ -36,21 +36,49 @@
   /**/
   overflow: hidden;
   background-color: #fdfaf7;
-  border: solid 1px #c2b5a3;
+  border: solid 1px #c7bebc;
 }
 
 .back-page {
   transform-origin: right;
   transform: rotateY(180deg);
-  box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.4);
-  margin-left: 40px;
+  box-shadow: inset -7px 0 30px -7px #00000066, -10px 10px 15px 0px #0000001f;
+  margin-left: 2%;
   pointer-events: none;
 }
 
 .front-page {
   transform-origin: left;
   transform: rotateY(0deg);
-  box-shadow: inset 7px 0 30px -7px rgba(0,0,0,0.4);
-  margin-right: 40px;
+  box-shadow: inset 7px 0 30px -7px #00000066, 10px 10px 15px 0px #0000001f;
+  margin-right: 2%;
   pointer-events: all;
+}
+
+.flip-page.cover-page .front-page,
+.flip-page.cover-page .back-page {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+
+.flip-page.cover-page .front-page {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: inset 0px 0 30px 0px #240a0380, 20px 0px 20px 0px #00000030;
+}
+
+.flip-page.cover-page .back-page {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: inset 0px 0 30px 0px #240a0380, 20px 9px 20px 10px #000000b3;
+}
+
+.flip-page.cover-page.front .front-page {
+  box-shadow: inset 0px 0 30px 0px #240a0380, -20px 9px 20px 10px #000000b3;
+}
+
+.flip-page.cover-page.front .back-page {
+  box-shadow: inset 0px 0 30px 0px #240a0380, -20px 0px 20px 0px #00000030;
 }

@@ -9,7 +9,7 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
   styleUrls: ['./txt-to-html.component.css']
 })
 export class TxtToHtmlComponent implements OnChanges {
-  @Input() filename: string = '';
+  @Input() filename?: string = '';
   private basePath = 'txt/';
 
   @ViewChild('contentContainer', { read: ViewContainerRef, static: true }) contentContainer!: ViewContainerRef;
