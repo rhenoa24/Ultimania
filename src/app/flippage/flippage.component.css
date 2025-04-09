@@ -93,7 +93,7 @@
 }
 
 .flip-page.cover-page:not(.front) .front-page {
-  background-image: url('./images/cover-back.jpg') !important;
+  background-image: url(./images/cover-back.jpg) !important;
 }
 
 .flip-page.cover-page.front .front-page {
@@ -102,7 +102,7 @@
 
 .flip-page.cover-page.front .back-page {
   box-shadow: inset 0px 0 30px 0px #240a0380, -20px 0px 20px 0px #00000030;
-  background-image: url('./images/cover-back.jpg') !important;
+  background-image: url(./images/cover-back.jpg) !important;
 }
 
 /**/
