@@ -2,7 +2,8 @@
      [class.flipped]="this.isFlipped"
      [class.cover-page]="this.Cover"
      [class.front]="this.FrontCover"
-     [class.centered]="this.isCentered">
+     [class.first-page]="this.onFirstPage"
+     [class.last-page]="this.onLastPage">
 
   @if (this.Cover !== '' && this.Cover !== null && this.Cover !== undefined) {
   <!-- Cover Page -->

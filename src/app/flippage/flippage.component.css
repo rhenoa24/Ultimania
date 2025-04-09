@@ -108,9 +108,13 @@
 /**/
 
 .flip-page {
-    transition: transform 1s ease;
+  transition: transform 1s ease;
 }
 
-.flip-page.centered {
-  transform: translateX(calc(50% / -2));
-}
+  .flip-page.first-page {
+    transform: translateX(calc(50% / -2));
+  }
+
+  .flip-page.last-page {
+    transform: translateX(calc(-50% / -2));
+  }

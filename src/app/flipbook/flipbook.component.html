@@ -7,8 +7,9 @@
                  [Cover]="page.cover"
                  [FrontCover]="page.frontCover"
                  [style.zIndex]="zIndices[i]"
-                 (isFlippedChanged)="handleFlip(i)"
-                 [isCentered]="this.isCentered">
+                 (isFlippedChanged)="handleFlip(i, $event)"
+                 [onFirstPage]="this.onFirstPage"
+                 [onLastPage]="this.onLastPage">
       </flip-page>
     </div>
   </div>

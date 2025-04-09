@@ -16,7 +16,8 @@ export class FlippageComponent {
   protected isFlipped: boolean = false;
   @Output() isFlippedChanged = new EventEmitter<boolean>();
 
-  @Input() isCentered?: boolean = true;
+  @Input() onFirstPage?: boolean = true;
+  @Input() onLastPage?: boolean = true;
 
   constructor(
     private cdr: ChangeDetectorRef

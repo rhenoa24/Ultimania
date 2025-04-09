@@ -10,6 +10,8 @@ export class FlipbookComponent implements OnInit {
   pages: { front?: string; back?: string; cover?: string; frontCover?: boolean }[] = [];
   zIndices: number[] = [];
 
+  flippedStates: boolean[] = [];
+
   ngOnInit(): void {
     // Define your pages
     this.pages = [
@@ -33,22 +35,40 @@ export class FlipbookComponent implements OnInit {
 
   isCooldown = false;
 
-  handleFlip(pageIndex: number): void {
+  handleFlip(pageIndex: number, isFlipped: boolean): void {
     if (this.isCooldown) return;
 
     // Start cooldown
     this.isCooldown = true;
     setTimeout(() => {
       this.isCooldown = false;
-    },500);
+    }, 500);
 
     // Immediately update z-index
     const highestZIndex = Math.max(...this.zIndices);
     this.zIndices[pageIndex] = highestZIndex + 1;
+
+    this.flippedStates[pageIndex] = isFlipped;
+    this.checkAllPagesFlipped();
+
+    //console.log(this.flippedStates);
   }
 
-  isCentered = false;
+  onFirstPage = true;
+  onLastPage = false;
 
+  // Helper method to check if all pages are flipped
+  checkAllPagesFlipped(): void {
+    this.onFirstPage = false;
+    this.onLastPage = false;
+
+    if (this.flippedStates[0] === false || this.flippedStates.length === 0) {
+      this.onFirstPage = true; //First Page not yet flipped
+    }
+    if (this.flippedStates[this.pages.length - 1] === true) {
+      this.onLastPage = true; //Last Page has been flipped
+    }
+  }
 
 
 }
