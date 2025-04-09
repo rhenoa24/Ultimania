@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-flipbook',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './flipbook.component.html',
   styleUrl: './flipbook.component.css'
 })
-export class FlipbookComponent implements OnInit {
+export class FlipbookComponent implements OnInit, AfterViewInit {
   pages: { front?: string; back?: string; cover?: string; frontCover?: boolean }[] = [];
   zIndices: number[] = [];
 
@@ -31,6 +31,20 @@ export class FlipbookComponent implements OnInit {
       const zIndexValue = totalPages - i + 1;
       this.zIndices.push(zIndexValue);
     }
+
+  }
+
+  ngAfterViewInit(): void {
+    //const flipSound = new Audio('./audio/slide-book.wav');
+
+    //// Simulate a user interaction
+    //const simulatedClick = new MouseEvent('click', { bubbles: true, cancelable: true });
+    //document.body.dispatchEvent(simulatedClick);
+
+    //// Now try to play the sound after the simulated user interaction
+    //flipSound.play().catch(function (error) {
+    //  console.error('Audio play failed', error);
+    //});
   }
 
   isCooldown = false;
