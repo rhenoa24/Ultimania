@@ -25,33 +25,45 @@
   }
 
 .front-page, .back-page {
-  width: calc(100% - 2%);
-  margin-top: 2%;
-  height: calc(100% - 4%);
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition-duration: 1.5s;
-  padding: 20px;
-  overflow: hidden;
   /**/
   overflow: hidden;
-  background-color: #fdfaf7;
-  border: solid 1px #c7bebc;
+  cursor: pointer;
 }
+
+  .front-page .paper, .back-page .paper {
+    overflow: hidden;
+    width: calc(100% - 2%);
+    margin-top: 2%;
+    height: calc(100% - 4%);
+    padding: 5%;
+    background-color: #fdfaf7;
+    border: solid 1px #c7bebc;
+  }
+
+  .back-page .paper {
+    box-shadow: inset -7px 0 30px -7px #00000066, -10px 10px 15px 0px #0000001f;
+    margin-left: 2%;
+  }
+
+  .front-page .paper {
+    box-shadow: inset 7px 0 30px -7px #00000066, 10px 10px 15px 0px #0000001f;
+    margin-right: 2%;
+  }
 
 .back-page {
   transform-origin: right;
   transform: rotateY(180deg);
-  box-shadow: inset -7px 0 30px -7px #00000066, -10px 10px 15px 0px #0000001f;
-  margin-left: 2%;
   pointer-events: none;
 }
 
 .front-page {
   transform-origin: left;
   transform: rotateY(0deg);
-  box-shadow: inset 7px 0 30px -7px #00000066, 10px 10px 15px 0px #0000001f;
-  margin-right: 2%;
   pointer-events: all;
 }
 
